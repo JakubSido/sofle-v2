@@ -61,7 +61,7 @@
             display-name = "lower";
             bindings = <
 &trans    &tog 5   &trans  &trans  &trans  &trans                    &kp RA(N1)    &kp RA(NUMBER_3)  &trans         &trans       &trans        &kp DEL
-&trans    &kp INS  &trans  &trans  &trans  &trans                    &kp NUMBER_1  &kp MINUS         &kp EQUAL      &kp PIPE     &trans        &trans
+&trans    &kp INS  &trans  &trans  &trans  &trans                    &kp NUMBER_1  &kp MINUS         &kp PIPE       &kp EQUAL   &kp RA(AMPS)        &trans
 &kp CLCK  &trans   &trans  &trans  &trans  &trans                    &kp LS(RBKT)  &kp RBKT          &kp RA(B)      &kp RA(N)    &trans        &trans
 &trans    &trans   &trans  &trans  &trans  &trans  &trans    &trans  &kp RA(F)     &kp RA(G)         &kp RA(COMMA)  &kp RA(DOT)  &kp NUMBER_1  &trans
                    &trans  &trans  &trans  &trans  &trans    &trans  &trans        &trans            &trans         &trans
