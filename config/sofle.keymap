@@ -16,10 +16,51 @@
 #define RAISE 2
 #define ADJUST 3
 #define FN 4
+#define VIM 6
+#define NUM 7
 
 
 
 / {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+
+        lt_spc: layer_tap_space {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            flavor = "balanced";
+            bindings = <&mo>, <&kp>;
+        };
+
+        ctrl_esc: ctrl_escape {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_num_layer {
+            timeout-ms = <50>;
+            key-positions = <27 28>;
+            bindings = <&tog NUM>;
+        };
+    };
+
     // Activate ADJUST layer by pressing raise and lower
 
     conditional_layers {
@@ -39,9 +80,9 @@
             bindings = <
 &kp GRAVE  &kp F1  &kp F2    &kp F3    &kp F4     &kp F5                           &kp F6  &kp F7         &kp F8     &kp F9             &kp F10   &kp BSPC
 &kp TAB    &kp Q   &kp W     &kp E     &kp R      &kp T                            &kp Y   &kp U          &kp I      &kp O              &kp P     &kp LBKT
-&kp CAPS   &kp A   &kp S     &kp D     &kp F      &kp G                            &kp H   &kp J          &kp K      &kp L              &kp SEMI  &kp SINGLE_QUOTE
+&ctrl_esc LCTRL ESC   &hm LGUI A   &hm LALT S   &hm LCTRL D   &hm LSHFT F   &kp G                            &kp H   &hm RSHFT J   &hm RCTRL K   &hm RALT L   &hm RGUI SEMI  &kp SINGLE_QUOTE
 &kp LSHFT  &kp Z   &kp X     &kp C     &kp V      &kp B   &kp C_MUTE    &kp HOME   &kp N   &kp M          &kp COMMA  &kp DOT            &kp FSLH  &kp DEL
-                   &kp LGUI  &kp LALT  &kp RCTRL  &mo 1   &kp ENTER     &kp SPACE  &mo 2   &kp RIGHT_ALT  &mo 4      &kp RIGHT_CONTROL
+                   &kp LGUI  &kp LALT  &kp RCTRL  &mo 1   &kp ENTER     &lt_spc VIM SPACE  &mo 2   &kp RIGHT_ALT  &mo 4      &kp RIGHT_CONTROL
             >;
 
             // sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -104,6 +145,28 @@
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &mo 1   &trans    &trans  &mo 2   &trans  &trans  &trans
+            >;
+        };
+
+        vim_nav {
+            display-name = "vim-nav";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans    &trans    &trans    &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans    &trans    &trans    &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp HOME  &kp PG_DN &kp PG_UP &kp END  &trans   &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans
+            >;
+        };
+
+        num_layer {
+            display-name = "numbers";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans   &trans   &trans   &trans   &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &kp N7   &kp N8   &kp N9   &trans   &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &kp N4   &kp N5   &kp N6   &kp N0   &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp N1   &kp N2   &kp N3   &kp DOT  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans   &trans   &trans   &trans
             >;
         };
     };
