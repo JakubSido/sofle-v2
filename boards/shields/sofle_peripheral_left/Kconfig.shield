@@ -1,0 +1,3 @@
+config SHIELD_SOFLE_PERIPHERAL_LEFT
+    def_bool $(shields_list_contains,sofle_peripheral_left)
+    select SHIELD_SOFLE_LEFT

@@ -19,7 +19,15 @@
 #
 ---
 include:
+  # Dongle: acts as USB central, no display
   - board: nice_nano_v2
-    shield: sofle_left nice_view_adapter nice_view
+    shield: sofle_dongle
+    artifact-name: sofle_dongle
+  # Left half: BLE peripheral (nice_view display)
   - board: nice_nano_v2
-    shield: sofle_right nice_view_adapter nice_view
+    shield: sofle_peripheral_left nice_view_adapter nice_view
+    artifact-name: sofle_left
+  # Right half: BLE peripheral (nice_view display)
+  - board: nice_nano_v2
+    shield: sofle_peripheral_right nice_view_adapter nice_view
+    artifact-name: sofle_right
