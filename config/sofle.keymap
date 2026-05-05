@@ -139,7 +139,7 @@
         lower_layer {
             display-name = "lower";
             bindings = <
-&trans    &tog 5   &trans  &trans  &trans  &trans                    &kp RA(N1)    &kp RA(NUMBER_3)  &trans         &trans       &trans            &kp DEL
+&trans    &trans   &trans  &trans  &trans  &trans                    &kp RA(N1)    &kp RA(NUMBER_3)  &trans         &trans       &trans            &kp DEL
 &trans    &kp INS  &trans  &trans  &trans  &trans                    &kp NUMBER_1  &kp MINUS         &kp PIPE       &kp EQUAL    &kp RA(NUMBER_7)  &trans
 &kp CLCK  &trans   &trans  &trans  &trans  &trans                    &kp LS(RBKT)  &kp RBKT          &kp RA(B)      &kp RA(N)    &trans            &trans
 &trans    &trans   &trans  &trans  &trans  &trans  &trans    &trans  &kp RA(F)     &kp RA(G)         &kp RA(COMMA)  &kp RA(DOT)  &kp NUMBER_1      &trans
@@ -152,7 +152,7 @@
         adjust_layer {
             display-name = "adjust";
             bindings = <
-&none              &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4                               &none            &none            &none            &none            &none            &bt BT_CLR
+&none              &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4                               &none            &none            &none            &none            &bt BT_CLR_ALL   &bt BT_CLR
 &ext_power EP_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &none         &rgb_ug RGB_EFF                            &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &none
 &none              &none            &none            &none            &none         &none                                      &tog 5           &none            &none            &none            &none            &none
 &none              &none            &none            &none            &none         &none            &rgb_ug RGB_TOG    &none  &none            &none            &none            &none            &none            &none
