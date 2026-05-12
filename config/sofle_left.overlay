@@ -1,1 +1,2 @@
-#include "hardware.dtsi"
+// Left-half overrides go here. nice_view CS pin override lives in sofle.keymap
+// because it must be applied AFTER the nice_view_adapter shield overlay.
