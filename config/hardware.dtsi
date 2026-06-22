@@ -4,4 +4,13 @@
     cs-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
 };
 
+// nice!view is a Sharp LS011B7DH03 (line-addressed, persistent). It only
+// rewrites dirty rows, so a single corrupted SPI line shows garbage that
+// never self-heals. Clamp the clock well under the panel's ~1-2 MHz limit to
+// kill bit errors over the split-header + connector wiring. Bump toward
+// 2000000 only if refresh feels sluggish.
+&nice_view {
+    spi-max-frequency = <1000000>;
+};
+
 // Zde mohou být i další úpravy (např. vcc-gpios nebo podsvícení)
