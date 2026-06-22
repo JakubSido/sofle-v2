@@ -10,7 +10,7 @@
 // kill bit errors over the split-header + connector wiring. Bump toward
 // 2000000 only if refresh feels sluggish.
 &nice_view {
-    spi-max-frequency = <1000000>;
+    spi-max-frequency = <500000>;
 };
 
 // Zde mohou být i další úpravy (např. vcc-gpios nebo podsvícení)
