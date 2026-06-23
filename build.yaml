@@ -23,13 +23,17 @@ include:
   - board: nice_nano_v2
     shield: sofle_dongle
     artifact-name: sofle_dongle
-  # Left half: BLE peripheral (nice_view display)
+  # Wipes BLE bonds; flash to force re-pairing, then flash the real firmware
   - board: nice_nano_v2
-    shield: sofle_left nice_view_adapter nice_view
+    shield: settings_reset
+    artifact-name: settings_reset
+  # Left half: BLE peripheral (nice_view + deda_display custom screen via nice_view_mip)
+  - board: nice_nano_v2
+    shield: sofle_left nice_view_adapter nice_view nice_view_mip
     artifact-name: sofle_left
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-  # Right half: BLE peripheral (nice_view display)
+  # Right half: BLE peripheral (nice_view + deda_display custom screen via nice_view_mip)
   - board: nice_nano_v2
-    shield: sofle_right nice_view_adapter nice_view
+    shield: sofle_right nice_view_adapter nice_view nice_view_mip
     artifact-name: sofle_right
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
